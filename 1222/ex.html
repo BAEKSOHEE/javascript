@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>추천 광고상품</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        article{
+            position: relative;
+            width: 325px;
+        }
+        #l_btn, #r_btn{
+            position: absolute;
+            background: #000;
+            color: #fff;
+            font-size: 30px;
+            top: 50%;
+        }
+        #l_btn{left: 0%;}
+        #r_btn{right:0%;}
+    </style>
+</head>
+<body>
+    <article>
+    <h2>HOT! TREND</h2><P></P>
+    <h2>추천 광고상품</h2>
+    <div id="fashion">
+    <img src="./images3/procunt04.jpg" alt="옷" id="fashion">
+    </div>
+    <p>
+        <span id="page"></span>
+        <span class="fas fa-angle-left" id="l_btn"></span>
+    <span class="fas fa-angle-right" id="r_btn"></span></p>
+    </article>
+    <script>
+        let fashion = ['product01', 'product02', 'product03', 'product04', 'product05', 'product06', 'product07', 'product08', 'product09', 'product10', 'product11', 'product12', 'product13', 'product14', 'product15', 'product16', 'product17', 'product18'];
+
+        let random = Math.floor(Math.random()*18);
+
+        document.getElementById('fashion').innerHTML='<img src="./images3/'+fashion[random]+'.jpg" alt="">';
+
+        const l_btn = document.getElementById('l_btn');
+        const r_btn = document.getElementById('r_btn');
+
+        let page_n = document.getElementById('page');
+
+        l_btn.addEventListener('click', function(){
+        document.getElementById('product').src='./images3/product'+n+'.jpg'
+        });
+        r_btn.addEventListener('click', function(){
+            page_n.innerHTML = n + '/18';
+        document.getElementById('product').src='./images3/product'+n+'.jpg'
+        });
+    </script>
+</body>
+</html>

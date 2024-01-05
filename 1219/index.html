@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>여행</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        article{
+            position: relative;
+            width: 400px;
+        }
+        article img{
+            width: 400px; height: 300px;
+            border: 3px solid #000;
+        }
+        .fas{
+            color: #fff;
+            background: #000;
+            font-size: 30px;
+            top: 50%;
+            cursor: pointer;
+        }
+        #left_btn{
+            position: absolute;
+            left: 0%;
+        }
+        #right_btn{
+            position: absolute;
+            right: -1%;
+        }
+        #page{
+            background: #000;
+            position: absolute;
+            color: #fff;
+            bottom: 1%;
+            right: -1%;
+            padding: 5px 10px;
+            font-size: 12px;
+        }
+
+    </style>
+    </head>
+<body>
+    <article>
+    <h2>여행지</h2>
+    <img src="./images/photo1.jpg" alt="여행지" id="photos">
+        <p>
+            <span id="page"></span>
+            <span class="fas fa-angle-left" id="left_btn"></span>
+        <span class="fas fa-angle-right" id="right_btn"></span></p>
+    </article>
+    <script>
+        let n = 1;
+        const l_btn = document.getElementById('left_btn');
+        const r_btn = document.getElementById('right_btn');
+
+        let page_n = document.getElementById('page');
+
+        l_btn.addEventListener('click', function(){
+            if(n==1){
+                n=4;
+            }else{
+                n--;
+            }
+            page_n.innerHTML = n + '/4';
+            document.getElementById('photos').src='./images/photo'+n+'.jpg'
+        });
+        r_btn.addEventListener('click', function(){
+            if(n==4){
+                n=1;
+            }else{
+                n++;
+            }
+            page_n.innerHTML = n + '/4';
+            document.getElementById('photos').src='./images/photo'+n+'.jpg';
+        });
+    </script>
+</body>
+</html>

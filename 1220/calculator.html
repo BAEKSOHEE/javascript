@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>03_함수실습예제_모바일 계산기 구현하기</title>
+<style>
+    div{
+        width: 400px;
+        border: 1px solid#000;
+        background: #d8d8;
+
+    }
+    div ul li{
+        list-style: none;
+        width: 90px; height: 30px;
+        display: block;
+    }
+
+    ul{
+        display: grid;
+        grid-gap:6px;
+        grid-template-rows: repeat(5, auto);
+        grid-template-areas:
+        "c01 c01 c18 c16"
+        "c10 c11 c12 c13"
+        "c06 c07 c08 c09"
+        "c02 c03 c04 c05"
+        "c17 c14 c15 c15"
+        ;
+        }
+    .c_1{grid-area: c01;
+    height: 40px;
+    }
+    .c_2{grid-area: c02;}
+    .c_3{grid-area: c03;}
+    .c_4{grid-area: c04;}
+    .c_5{grid-area: c05;}
+    .c_6{grid-area: c06;}
+    .c_7{grid-area: c07;}
+    .c_8{grid-area: c08;}
+    .c_9{grid-area: c09;}
+    .c_10{grid-area: c10;}
+    .c_11{grid-area: c11;}
+    .c_12{grid-area: c12;}
+    .c_13{grid-area: c13;}
+    .c_14{grid-area: c14;}
+    .c_15{grid-area: c15;}
+    .c_16{grid-area: c16;}
+    .c_17{grid-area: c17;}
+    .c_18{grid-area: c18;
+    width: 30px;}
+</style>
+</head>
+<body>
+<h2>03_함수실습예제_모바일 계산기 구현하기</h2>
+<div>
+<ul>
+    <li class="c_1"><input type="text" id="result"> <!-- 연산된 결과가 출력되는 양식 --></li>
+    <li class="c_2"><input type="button" value="1" onclick="cal(1)"></li>
+    <li class="c_3"><input type="button" value="2" onclick="cal(2)"></li>
+    <li class="c_4"><input type="button" value="3" onclick="cal(3)"></li>
+    <li class="c_5"><input type="button" value="+" onclick="cal('+')"></li>
+    <li class="c_6"><input type="button" value="4" onclick="cal(4)"></li>
+    <li class="c_7"><input type="button" value="5" onclick="cal(5)"></li>
+    <li class="c_8"><input type="button" value="6" onclick="cal(6)"></li>
+    <li class="c_9"><input type="button" value="-" onclick="cal('-')"></li>
+    <li class="c_10"><input type="button" value="7" onclick="cal(7)"></li>
+    <li class="c_11"><input type="button" value="8" onclick="cal(8)"></li>
+    <li class="c_12"><input type="button" value="9" onclick="cal(9)"></li>
+    <li class="c_13"><input type="button" value="*" onclick="cal('*')"></li>
+    <li class="c_14"><input type="button" value="0" onclick="cal(0)"></li>
+    <li class="c_15"><input type="button" value="=" onclick="result();"></li>
+    <li class="c_16"><input type="button" value="/" onclick="cal('/')"></li>
+    <li class="c_17"><input type="button" value="." onclick="cal('.')"></li>
+    <li class="c_18"><input type="button" value="CLEAR" onclick="init()"></li>
+</ul>
+</div>
+
+<script>
+// 1. 출력결과를 표시하기 위한 요소 변수선언
+let res = document.getElementById('result');
+
+//2. 각각 버튼을 클릭시 해당 매개변수값을 함수의 매개변수에 대입
+function cal(op){
+    console.log(op);
+    let outPut_v = res.value + op; //연산수식을 만들어 변수에 저장
+
+    //숫자와 수식을 모두 보이게 출력해본다.
+    res.value = outPut_v;
+}
+//3. '=' 버튼 클릭시 result함수 호출하여 연산계산결과가 나오도록 함.
+function result(){
+    res.value = eval(res.value);
+}
+//4. clear버튼 클릭시 res초기화하기
+function init(){
+    res.value = ''; //기존 값을 지우기
+}
+
+
+</script>
+
+
+
+</body>
+</html>

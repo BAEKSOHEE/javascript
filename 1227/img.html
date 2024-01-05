@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>팝업</title>
+    <style>
+        *{margin: 0px; padding: 0px;}
+        div{
+        }
+        #close{background: #000;
+        color: #fff;
+        width: 360px; height: 40px;
+        text-align: center;
+        line-height: 40px;
+        transform: translateY(-5px);
+        }
+    </style>
+</head>
+<body>
+    <div class="trip">
+        <img src="./images/banner.jpg" alt="자유여행"><p></p>
+        <input type="button" value="닫기" id="close"></input>
+    </div>
+
+    <script>
+        const close = document.getElementById('close');
+        close.addEventListener('click', function(){
+            window.open('img.html', '_blank', 'toolbar=yes, scrollbars=yes, resizable=nom, width=360px, height=370px');
+        });
+
+    </script>
+
+
+</body>
+</html>
